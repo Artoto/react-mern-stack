@@ -25,3 +25,22 @@ jobs:
           context: .
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/react-mern-stack-arthit:latest
+
+  deploy_to_aws:
+    name: Deploy to AWS Self-Hosted Runner
+    needs: build_and_push
+    runs-on: [self-hosted, Linux, X64]
+    environment: production
+    steps:
+      - name: Pull latest image from Docker Hub
+        run: |
+          sudo docker pull ${{ secrets.DOCKERHUB_USERNAME }}/react-mern-stack-arthit:latest
+
+      - name: Stop and remove existing container
+        run: |
+          sudo docker stop mern-stack-node || true
+          sudo docker rm mern-stack-node || true
+
+      - name: Run new container
+        run: |
+          sudo docker run -d -p 80:3000 --name mern-stack-react ${{ secrets.DOCKERHUB_USERNAME }}/react-mern-stack-arthit:latest

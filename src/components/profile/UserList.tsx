@@ -16,7 +16,7 @@ interface DataProps {
 const UserList = () => {
   const [isLoadding, setLoadding] = useState<boolean>(false);
   const [users, setUsers] = useState<DataProps[]>([]);
-  const apiPath = "http://localhost:5000/api/user";
+  const apiPath = "http://54.253.77.120:5000/api/user";
   const fetchs = new FetchData(apiPath);
   const navigate = useNavigate();
 

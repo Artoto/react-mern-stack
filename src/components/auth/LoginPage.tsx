@@ -31,7 +31,7 @@ const LoginPage = () => {
   const [isShowPassword, setIsShowPassword] = useState<boolean>(false);
   const inputPassword: string = isShowPassword ? "text" : "password";
   const navigate = useNavigate();
-  const apiPath = "http://localhost:5000/api/auth/login";
+  const apiPath = "http://54.253.77.120:5000/api/auth/login";
 
   useEffect(() => {
     if (

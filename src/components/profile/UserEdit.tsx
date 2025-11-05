@@ -58,7 +58,7 @@ const UserEdit = () => {
   const [isShowPassword, setIsShowPassword] = useState<boolean>(false);
   const inputPassword: string = isShowPassword ? "text" : "password";
   const navigate = useNavigate();
-  const apiPath = "http://localhost:5000/api/user";
+  const apiPath = "http://54.253.77.120:5000/api/user";
 
   useEffect(() => {
     if (id) {
