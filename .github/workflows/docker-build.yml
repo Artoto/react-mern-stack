@@ -38,8 +38,8 @@ jobs:
 
       - name: Stop and remove existing container
         run: |
-          sudo docker stop mern-stack-node || true
-          sudo docker rm mern-stack-node || true
+          sudo docker stop mern-stack-react || true
+          sudo docker rm mern-stack-react || true
 
       - name: Run new container
         run: |
